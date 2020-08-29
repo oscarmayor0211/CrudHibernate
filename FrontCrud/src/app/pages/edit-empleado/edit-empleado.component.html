@@ -1,0 +1,60 @@
+<h4>Editar <small> Empleado </small></h4>
+<hr />
+<div class="container">
+    <form autocomplete="off" [formGroup]="forma" (ngSubmit)="putEmpleado()">
+        <input type="hidden" formControlName="id" />
+        <div>
+            <div class="form-group row">
+                <label class="col-2 col-form-label">Nombre</label>
+                <div class="col-8">
+                    <input class="form-control" type="text" placeholder="Nombre" formControlName="nombre" />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-2 col-form-label">Apellido</label>
+                <div class="col-8">
+                    <input class="form-control" type="text" placeholder="Apellido" formControlName="apellido" />
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div class="form-group row">
+                <label class="col-2 col-form-label">Cedula</label>
+                <div class="col-8">
+                    <input class="form-control" type="number" placeholder="cedula" formControlName="cedula" />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-2 col-form-label">Telefono</label>
+                <div class="col-8">
+                    <input class="form-control" type="number" placeholder="Telefono" formControlName="telefono" />
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Correo</label>
+            <div class="col-8">
+                <input class="form-control" type="email" placeholder="Correo electrónico" formControlName="correo" />
+            </div>
+        </div>
+
+        <div class="form-group row text-center">
+            <label class="col-2 col-form-label">&nbsp;</label>
+            <div class="col-md-8">
+                <button type="submit" class="btn btn-outline-primary mr-5">
+          Guardar
+        </button>
+                <button type="submit" class="btn btn-outline-danger" routerLink="/empleados">
+          Cancelar
+        </button>
+            </div>
+        </div>
+        <div class="alert alert-primary" role="alert" *ngIf="seEdito">
+            Se modifico el empleado {{ empleado.nombre }} {{ empleado.apellido }}
+        </div>
+    </form>
+</div>

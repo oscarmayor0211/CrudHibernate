@@ -1,0 +1,45 @@
+<h4 class="container m-3">
+    Lista <small> Empleados </small>
+    <button routerLink="/empleados/create" class="btn btn-primary float-right">
+    Crear Empleado
+  </button>
+</h4>
+<hr />
+<div class="container">
+    <div class="col-md-12">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Cedula</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido</th>
+                    <th scope="col">Telefono</th>
+                    <th scope="col">Correo</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <div *ngIf="empleado.length <= 0">NO HAY REGISTROS DE EMPLEADOS</div>
+
+                <tr *ngFor="let empl of empleado">
+                    <td>{{ empl.cedula }}</td>
+                    <td>{{ empl.nombre }}</td>
+                    <td>{{ empl.apellido }}</td>
+                    <td>{{ empl.telefono }}</td>
+                    <td>{{ empl.correo }}</td>
+                    <td>
+                        <button class="btn btn-primary" routerLink="/empleados/{{ empl.id }}/edit">
+              <i class="fa fa-edit"></i>
+            </button>
+                    </td>
+                    <td>
+                        <button class="btn btn-danger" (click)="deleteEmpleado(empl.id)">
+              <i class="fa fa-trash-o"></i>
+            </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

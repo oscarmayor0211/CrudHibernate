@@ -1,0 +1,93 @@
+<h4>Crear <small> Empleado </small></h4>
+<hr />
+<div class="container">
+    <form autocomplete="off" [formGroup]="forma" (ngSubmit)="postEmpleado()">
+        <div>
+            <div class="form-group row">
+                <label class="col-2 col-form-label">Nombre</label>
+                <div class="col-8">
+                    <input class="form-control" type="text" formControlName="nombre" placeholder="Nombre" [class.is-invalid]="NombreInvalid" />
+                    <small *ngIf="NombreInvalid" class="text-danger">INGRESE EL NOMBRE</small
+          >
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label class="col-2 col-form-label">Apellido</label>
+        <div class="col-8">
+          <input
+            class="form-control"
+            type="text"
+            placeholder="Apellido"
+            [class.is-invalid]="ApellidoInvalid"
+            formControlName="apellido"
+          />
+          <small *ngIf="ApellidoInvalid" class="text-danger"
+            >INGRESE EL APELLIDO</small
+          >
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="form-group row">
+        <label class="col-2 col-form-label">Cedula</label>
+        <div class="col-8">
+          <input
+            class="form-control"
+            type="number"
+            placeholder="Cedula"
+            [class.is-invalid]="CedulaInvalid"
+            formControlName="cedula"
+          />
+          <small *ngIf="CedulaInvalid" class="text-danger"
+            >INGRESE LA CEDULA</small
+          >
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-2 col-form-label">Telefono</label>
+        <div class="col-8">
+          <input
+            class="form-control"
+            type="number"
+            placeholder="Telefono"
+            formControlName="telefono"
+            [class.is-invalid]="TelefonoInvalid"
+          />
+          <small *ngIf="TelefonoInvalid" class="text-danger"
+            >INGRESE EL TELEFONO
+          </small>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Correo</label>
+            <div class="col-8">
+                <input class="form-control" type="email" placeholder="Correo electrónico" [class.is-invalid]="CorreoInvalid" formControlName="correo" />
+                <small *ngIf="CorreoInvalid" class="text-danger">INGRESE EL CORREO VALIDO</small
+        >
+      </div>
+    </div>
+
+    <div class="form-group row text-center">
+      <label class="col-2 col-form-label">&nbsp;</label>
+      <div class="col-md-8">
+        <button type="submit" class="btn btn-outline-primary mr-5">
+          Guardar
+        </button>
+
+        <button
+          type="button"
+          class="btn btn-outline-danger"
+          routerLink="/empleados"
+        >
+          Cancelar
+        </button>
+      </div>
+    </div>
+    <!-- <div class="alert alert-primary" role="alert" *ngIf="seGuardo">
+      Se creo el empleado exitosamente
+    </div> -->
+  </form>
+</div>
